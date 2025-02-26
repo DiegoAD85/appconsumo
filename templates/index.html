@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Consumo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Consumo</h1>
+
+        <form method="POST" class="form">
+            <div class="form-group">
+                <label for="km_por_litro">Km/l:</label>
+                <input type="text" name="km_por_litro" id="km_por_litro" placeholder="Digite Km/l">
+            </div>
+
+            <div class="form-group">
+                <label for="distancia_km">Distância em Km:</label>
+                <input type="text" name="distancia_km" id="distancia_km" placeholder="Digite a distância">
+            </div>
+
+            <div class="form-group">
+                <label for="valor_litro">Valor do litro (R$):</label>
+                <input type="text" name="valor_litro" id="valor_litro" placeholder="Digite o valor">
+            </div>
+
+            <button type="submit" class="button">Calcular</button>
+        </form>
+
+        {% if resultado %}
+            <div class="result">
+                <h2>Resultado:</h2>
+                <p>{{ resultado|safe }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
